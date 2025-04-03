@@ -1,11 +1,9 @@
-import React from "react";
-import AddTodo from "./components/AddTodo";
-import TodoPage from "./pages/TodoPage";
+import FileUpload from "./pages/FileUpload";
 
 const App = () => {
     return (
-        <div>
-            <TodoPage />
+        <div className=" flex justify-center">
+            <FileUpload />
         </div>
     );
 };

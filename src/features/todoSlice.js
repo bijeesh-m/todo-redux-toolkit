@@ -4,13 +4,24 @@ const todoSlice = createSlice({
     name: "todos",
     initialState: [],
     reducers: {
+
         addTodo: (state, action) => {
             state.push({ id: Date.now(), text: action.payload, completed: false });
         },
-        editTodo: (state, action) => {},
+
+        editTodo: (state, action) => {
+            state.map((todo) => {
+                if (action.payload.id === todo.id) {
+                    todo.text = action.payload.todoText;
+                }
+                return todo;
+            });
+        },
+
         deleteTodo: (state, action) => {
             return state.filter((todo) => todo.id != action.payload);
         },
+        
         toggleTodo: (state, action) => {
             state.map((todo) => {
                 if (todo.id == action.payload) {
